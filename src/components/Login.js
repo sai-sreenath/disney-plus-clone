@@ -43,7 +43,7 @@ const BgImage = styled.div`
     height : 100%;
     background-position : top;
     background-size : cover;
-    background-repeat : no-repeat;
+     
     background-image : url("/images/login-background.jpg");
     position : absolute;
     top: 0;
@@ -94,7 +94,7 @@ const Description=styled.p`
 
 const CTALogoTwo = styled.img`
     max-width: 600px;
-    margin-bottom:20px;
+    margin-bottom:20px; 
     display: inline-block;
     vertical-align: bottom;
     width: 100%;
