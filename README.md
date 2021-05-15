@@ -13,6 +13,9 @@ npm install -g firebase tools
 npm add react-redux
 npm install @reduxjs/toolkit
 
+npm add react-slick
+npm add slick-carousel
+
 Firebase setup details
 ------------------------
 <!-- The core Firebase JS SDK is always required and must be listed first -->
