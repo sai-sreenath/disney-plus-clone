@@ -10,6 +10,9 @@ npm add-react-icons
 npm add firebase
 npm install -g firebase tools
 
+npm add react-redux
+npm install @reduxjs/toolkit
+
 Firebase setup details
 ------------------------
 <!-- The core Firebase JS SDK is always required and must be listed first -->
