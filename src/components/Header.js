@@ -31,7 +31,6 @@ const Header = (props) => {
             .signInWithPopup(provider)
             .then((result)=>{
                 setUser(result.user);
-                console.log(result);
             })
             .catch((error) => {
                 alert(error.message);

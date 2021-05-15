@@ -23,6 +23,7 @@ const Home = (props) => {
     useEffect(() => {
         db.collection("movies").onSnapshot((snapshot) => {
             snapshot.docs.map((doc) => {
+                console.log(recommends);
                 switch(doc.data().type){
                     case "recommend":
                         //recommends.push({id: doc.id, ...doc.data()})
@@ -43,17 +44,17 @@ const Home = (props) => {
                         break;
                 }
             });    
-        });
 
-        dispatch(
-            setMovies({
-                recommend: recommends,
-                newDisney: newDisneys,
-                original: originals,
-                trending: trending,
-            })
-        );
-    }, {userName});
+            dispatch(
+                setMovies({
+                    recommend: recommends,
+                    newDisney: newDisneys,
+                    original: originals,
+                    trending: trending,
+                })
+            );
+            }); 
+        }, [userName]);
 
     return (
         <Container>
