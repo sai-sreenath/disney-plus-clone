@@ -1,16 +1,39 @@
 import styled from "styled-components";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import db from "../firebase";
 
 const Detail = (props) =>{
+
+    const {id} = useParams();
+    const [detailData, setDetailData] = useState({});
+
+    useEffect(() => {
+        db.collection('movies').doc(id)
+        .get().then((doc) => {
+                if(doc.exists){
+                    setDetailData(doc.data());
+                }
+                else{
+                    console.log('no such documen tin firebase');
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document:", error);
+            })
+            .catch((error) =>{
+                console.log("Error getting document:", error);
+            })
+    }, [id]);
+
     return( 
         <Container>
             <Background>
-                <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/49B92C046117E89BC9243A68EE277A3B30D551D4599F23C10BF0B8C1E90AEFB6/scale?width=1440&aspectRatio=1.78&format=jpeg" alt=""/>
+                <img alt={detailData.title} src={detailData.backgroundImg}/>
             </Background>
 
             <ImageTitle>
-                <img alt=""
-                    src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/5C647DF3FFBFA343CFEA84Ac715148F25F9E86F398B408010CC403E7654FB908/scale?width=1440&aspectRatio=1.78"
-                />
+                <img alt={detailData.title} src={detailData.titleImg} />    
             </ImageTitle>
 
             <ContentMeta>
@@ -33,6 +56,10 @@ const Detail = (props) =>{
                         </div>
                     </GroupWatch>
                 </Controls>
+                <SubTitle>{detailData.subTitle}</SubTitle>
+                <Description>
+                    {detailData.description}
+                </Description>
             </ContentMeta>
         </Container>
     ); 
@@ -189,7 +216,28 @@ const GroupWatch = styled.div`
             width: 100%;
         }
     }
+`;
 
+const SubTitle = styled.div`
+    color: rgb(249, 249, 249);
+    font-size: 15px;
+    min-height: 20px;
+
+    @media(max-width: 768px){
+        font-size: 12px;    
+    }
+`;
+
+const Description = styled.div`
+    line-height: 1.4;
+    font-size: 20px;
+    padding: 16px 0px;
+    color: rgb(249, 249, 249);
+
+    @media(max-width: 768px){
+        font-size: 14px;
+
+    }
 `;
 
 export default Detail;
