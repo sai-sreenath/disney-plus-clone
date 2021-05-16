@@ -16,6 +16,16 @@ npm install @reduxjs/toolkit
 npm add react-slick
 npm add slick-carousel
 
+Firebase deploy
+----------------
+npm install -g firebase-tools
+firebase login
+firebase init - hosting
+npm run build
+firebase deploy
+
+Production build: https://disneyplus-clone-1437e.web.app/home
+
 Firebase setup details
 ------------------------
 <!-- The core Firebase JS SDK is always required and must be listed first -->
