@@ -27,6 +27,11 @@ const Detail = (props) =>{
                         <span />
                         <span />
                     </AddList>
+                    <GroupWatch>
+                        <div>
+                            <img src="/images/group-icon.png" alt="" />
+                        </div>
+                    </GroupWatch>
                 </Controls>
             </ContentMeta>
         </Container>
@@ -162,6 +167,29 @@ const AddList = styled.div`
            width: 2px;
        }
    }
+`;
+
+const GroupWatch = styled.div`
+   height: 44px;
+   width: 44px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   background: white;
+
+    div{
+        height: 40px;
+        width: 40px;
+        background: rgb(0, 0, 0);
+        border-radius: 50%;
+        
+        img{
+            width: 100%;
+        }
+    }
+
 `;
 
 export default Detail;
